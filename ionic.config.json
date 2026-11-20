@@ -1,0 +1,7 @@
+{
+  "name": "asset-link",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

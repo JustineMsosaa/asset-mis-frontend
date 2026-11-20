@@ -1,0 +1,218 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.amis {
+  --ink: #14232b;
+  --muted: #5d6b74;
+  --line: #dde3e8;
+  --surface: #ffffff;
+  --page: #eef1f4;
+  --teal: #0f6b73;
+  --teal-soft: #7fb7be;
+  --amber: #b9810f;
+  --red: #b5452f;
+  --green: #2f7d4f;
+
+  background: var(--page);
+  color: var(--ink);
+  padding: 20px clamp(12px, 3vw, 28px) 40px;
+  min-height: 100%;
+  font-variant-numeric: tabular-nums;
+}
+
+.amis h1 { font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+.amis h2 { font-size: 0.95rem; font-weight: 650; margin: 0 0 14px; }
+.amis-head p { margin: 4px 0 0; color: var(--muted); font-size: 0.85rem; }
+
+.amis-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.amis-actions { display: flex; gap: 8px; }
+
+/* KPI strip: one connected band rather than separate cards */
+.amis-kpis {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+.amis-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 18px;
+  border-left: 1px solid var(--line);
+}
+.amis-kpi:first-child { border-left: 0; }
+.amis-kpi-label { font-size: 0.8rem; color: var(--muted); }
+.amis-kpi-value { font-size: 1.9rem; font-weight: 700; line-height: 1.15; }
+.amis-kpi-note { font-size: 0.78rem; color: var(--muted); }
+.amis-kpi-good .amis-kpi-note { color: var(--green); }
+.amis-kpi-warn .amis-kpi-note { color: var(--amber); }
+.amis-kpi-bad .amis-kpi-value { color: var(--red); }
+.amis-kpi-bad .amis-kpi-note { color: var(--red); }
+
+.amis-grid { display: grid; gap: 16px; margin-bottom: 16px; }
+.amis-grid-charts { grid-template-columns: 1fr 1fr; }
+.amis-grid-tables { grid-template-columns: 1fr 1fr; }
+.amis-span-2 { grid-column: 1 / -1; }
+
+.amis-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px;
+  min-width: 0;
+}
+
+/* Donut */
+.amis-status { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.amis-donut { width: 150px; height: 150px; flex: none; }
+.amis-donut-value { font-size: 22px; font-weight: 700; fill: var(--ink); }
+.amis-donut-label { font-size: 9px; fill: var(--muted); }
+.amis-legend { list-style: none; margin: 0; padding: 0; flex: 1; min-width: 160px; }
+.amis-legend li {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  font-size: 0.88rem;
+}
+.amis-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* Horizontal bars */
+.amis-hbars { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.amis-hbars li {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+}
+.amis-hbars strong { text-align: right; }
+.amis-hbar-track { background: #e8edf0; border-radius: 4px; height: 10px; overflow: hidden; }
+.amis-hbar-fill { display: block; height: 100%; background: var(--teal); border-radius: 4px; }
+
+/* Monthly bars */
+.amis-bars { width: 100%; height: auto; max-height: 220px; }
+.amis-bar { fill: var(--teal-soft); }
+.amis-bar-peak { fill: var(--teal); }
+.amis-bar-value { font-size: 11px; font-weight: 700; fill: var(--ink); }
+.amis-axis { font-size: 10px; fill: var(--muted); }
+
+/* Table */
+.amis-scroll { overflow-x: auto; }
+.amis-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.amis-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 0 10px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.amis-table td { padding: 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.amis-table tr:last-child td { border-bottom: 0; }
+.amis-table .num { text-align: right; }
+.amis-meter {
+  display: inline-block;
+  width: 90px;
+  height: 8px;
+  background: #e8edf0;
+  border-radius: 4px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.amis-meter span { display: block; height: 100%; background: var(--teal); }
+.amis-pct { margin-left: 8px; font-size: 0.8rem; color: var(--muted); }
+
+/* Lists */
+.amis-list { list-style: none; margin: 0; padding: 0; }
+.amis-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+.amis-list li:last-child { border-bottom: 0; }
+.amis-list li > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.amis-list small { color: var(--muted); font-size: 0.78rem; }
+
+.amis-chip {
+  flex: none;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.amis-chip-warn { background: #f6e8c6; color: #7a540a; }
+.amis-chip-bad { background: #f3d6cf; color: #8a2f1c; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .amis-kpis { grid-template-columns: repeat(3, 1fr); }
+  .amis-kpi:nth-child(4) { border-left: 0; }
+  .amis-kpi:nth-child(n + 4) { border-top: 1px solid var(--line); }
+  .amis-grid-charts,
+  .amis-grid-tables { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .amis-kpis { grid-template-columns: 1fr 1fr; }
+  .amis-kpi:nth-child(odd) { border-left: 0; }
+  .amis-kpi:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .amis-kpi:nth-child(4) { border-left: 1px solid var(--line); }
+  .amis-hbars li { grid-template-columns: 96px 1fr 36px; }
+}
+
+/* Dark mode, following Ionic's own dark palette class or system setting */
+@media (prefers-color-scheme: dark) {
+  .amis {
+    --ink: #e6edf1;
+    --muted: #9aa8b1;
+    --line: #2a3841;
+    --surface: #17242b;
+    --page: #0f1a20;
+    --teal: #4fb3bd;
+    --teal-soft: #2c6a72;
+    --amber: #e0a93a;
+    --red: #e0735c;
+    --green: #5fc088;
+  }
+  .amis-hbar-track,
+  .amis-meter { background: #26343c; }
+  .amis-chip-warn { background: #4a3a14; color: #f1cf86; }
+  .amis-chip-bad { background: #4d2a22; color: #f3b3a4; }
+}
